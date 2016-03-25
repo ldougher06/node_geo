@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title LD Geolocation
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/styles/main.css')
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Domine', rel='stylesheet', type='text/css')
+
+  body(ng-app="nodeGeo")
+    .container
+      nav.navbar
+        ul.nav.navbar-nav.navbar-right
+          li: a(href='#') Home
+          li: a(href='#') Login
+          li: a(href='#') Logout
+      .panel.panel-default
+        .panel-heading
+          h2.text-center Enter Info
+        .panel-body
+          form(name='userForm' novalidate)
+          .form-group
+            label(for='name')
+              input.form-control#name(type='text' placeholder='Name:' ng-model='formData.name' required)
+          .form-group
+            label(for='city')
+              input.form-control#city(type='text' placeholder='City:' ng-model='formData.city' required)
+          button.btn.btn-primary.btn-block(type='submit' ng-disabled='userForm.$invalid')
+
+    script(src='/lib/angular/angular.js')
+    script(src='/lib/angular-route/angular-route.js')
+    script(src='/lib/angularjs-geolocation/dist/angularjs-geolocation.min.js')
+    //- script(src='/lib/modernizr/bin/modernizr')
+    //- script(src='https://maps.googleapis.com/maps/api/js?key=')
+    script(src='/js/main.js')
+
