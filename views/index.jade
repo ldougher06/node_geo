@@ -1,38 +1,41 @@
 doctype html
-html(lang="en")
+html(lang="en", ng-app="postgresTodos")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title LD Geolocation
+
+    title LD PostgreSQL Todo
+
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/styles/main.css')
     link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Domine', rel='stylesheet', type='text/css')
 
-  body(ng-app="nodeGeo")
+  body(ng-controller="todoCtrl")
     .container
       nav.navbar
         ul.nav.navbar-nav.navbar-right
-          li: a(href='#') Home
-          li: a(href='#') Login
-          li: a(href='#') Logout
-      .panel.panel-default
+          li: a(href='#') These
+          li: a(href='#') Don't
+          li: a(href='#') Work
+      .panel.panel-default.text-center
         .panel-heading
-          h2.text-center Enter Info
-        .panel-body
-          form(name='userForm' novalidate)
-          .form-group
-            label(for='name')
-              input.form-control#name(type='text' placeholder='Name:' ng-model='formData.name' required)
-          .form-group
-            label(for='city')
-              input.form-control#city(type='text' placeholder='City:' ng-model='formData.city' required)
-          button.btn.btn-primary.btn-block(type='submit' ng-disabled='userForm.$invalid')
+          h2 Enter Todo
+        .panel-body.todo_form
+          form
+            .form-group
+              label(for='todoForm')
+                input.form-control#todoForm(type='text' placeholder='What do you need to do?' required)
+            button.btn.btn-primary.btn-block(type='submit' ng-click="createTodo()") SUBMIT
+
+      .panel.panel-default.text-center
+        .panel-heading
+          h2 Todo List
+          ul
+            li
+              h3 {{ data.text }}
 
     script(src='/lib/angular/angular.js')
     script(src='/lib/angular-route/angular-route.js')
-    script(src='/lib/angularjs-geolocation/dist/angularjs-geolocation.min.js')
-    //- script(src='/lib/modernizr/bin/modernizr')
-    //- script(src='https://maps.googleapis.com/maps/api/js?key=')
     script(src='/js/main.js')

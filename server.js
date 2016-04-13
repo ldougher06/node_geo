@@ -2,51 +2,45 @@
 'use strict'
 
 const chalk = require('chalk')
-<<<<<<< HEAD
 const bodyParser = require('body-parser')
+const path = require('path'); // included with node but needs to be required
 const express = require('express')
 const app = express()
 const pg = require('pg')
-const request = require('request')
 
 const routes = require('./routes/index')
-=======
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
-const pg = require('pg')
->>>>>>> 3ed7a1f183197acdd548e91e6948d091b63a071e
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
-const POSTGRES_URL = process.env.POSTGRES_URL
-  || 'postgres://localhost:5432/node_geo'
+// const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://localhost:5432/todos';
 
-const db = new pg.Client(POSTGRES_URL)
+// const db = new pg.Client(POSTGRES_URL);
 
+
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 
-<<<<<<< HEAD
-app.locals.title = 'LD Node PSQL GEO';
+app.locals.title = 'LD PSQL TODOS';
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-// app.use(routes);
+app.use('/', routes);
 
-=======
->>>>>>> 3ed7a1f183197acdd548e91e6948d091b63a071e
-app.get('/', (req, res) => {
-  res.render('index')
-})
+app.listen(PORT, () => {
+  console.log(chalk.bold.black.bgWhite(`*******  Server listening on PORT: ${PORT}  ******`))
+});
 
-db.connect((err) => {
-  if(err) throw err;
+// db.connect((err) => {
 
-  app.listen(PORT, () => {
-    console.log(chalk.bold.black.bgWhite(`*******  Server listening on PORT: ${PORT}  ******`))
-  })
-})
+//   if(err) throw err;
+
+//   app.listen(PORT, () => {
+//     console.log(chalk.bold.black.bgWhite(`*******  Server listening on PORT: ${PORT}  ******`))
+//   });
+
+// });
+
 

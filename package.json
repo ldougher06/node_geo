@@ -5,12 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "node server.js",
-    "server": "nodemon server.js"
-=======
+    "server": "nodemon server.js",
     "start": "node server.js"
->>>>>>> 3ed7a1f183197acdd548e91e6948d091b63a071e
   },
   "repository": {
     "type": "git",
@@ -39,23 +35,15 @@
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "lodash": "^4.6.1",
-<<<<<<< HEAD
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
     "nodemon": "^1.9.1",
+    "path": "^0.12.7",
     "pg": "^4.5.1",
     "request": "^2.69.0"
   },
   "devDependencies": {
-    "bower": "^1.7.7",
-=======
-    "multer": "^1.1.0",
-    "nodemon": "^1.9.1",
-    "pg": "^4.5.1"
-  },
-  "devDependencies": {
->>>>>>> 3ed7a1f183197acdd548e91e6948d091b63a071e
     "chalk": "^1.1.1"
   }
 }
