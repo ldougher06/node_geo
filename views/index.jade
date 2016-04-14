@@ -22,19 +22,20 @@ html(lang="en", ng-app="postgresTodos")
       .panel.panel-default.text-center
         .panel-heading
           h2 Enter Todo
-        .panel-body.todo_form
+        .panel-body
           form
             .form-group
               label(for='todoForm')
-                input.form-control#todoForm(type='text' placeholder='What do you need to do?' required)
+                input.form-control#todoForm(type='text' placeholder='What do you need to do?' required ng-model='formData.text')
             button.btn.btn-primary.btn-block(type='submit' ng-click="createTodo()") SUBMIT
 
-      .panel.panel-default.text-center
+      .panel.panel-default
         .panel-heading
-          h2 Todo List
-          ul
+          h2.text-center Todo List
+          ul(ng-repeat='todo in todoData')
             li
-              h3 {{ data.text }}
+              h3 {{ todo.text }}
+
 
     script(src='/lib/angular/angular.js')
     script(src='/lib/angular-route/angular-route.js')
