@@ -15,4 +15,8 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/auth', (req, res) => {
+  res.render('auth');
+})
+
 module.exports = router;
